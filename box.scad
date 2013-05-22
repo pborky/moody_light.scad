@@ -2,7 +2,7 @@ BOTTOM =1;
 MIDDLE = 2;
 TOP = 3;
 
-select =  MIDDLE;
+select =  TOP;
 
 a = 79.3; // vnutorna sirka
 b = 70.5; // vn. vyska
@@ -45,6 +45,18 @@ difference() {
 difference() {
 	translate ([d/2,d/2,0]) cube( [a,b,8+d] );
 	translate ([3*d/4,3*d/4,-1]) cube( [a-d/2,b-d/2,8+d+2] );
+}
+}
+}
+
+if (select==TOP) {
+union() {
+difference() {
+	translate ([0,0,0]) cube( [a+d,b+d,d] );
+}
+difference() {
+	translate ([3*d/4,3*d/4,0]) cube( [a-d/2,b-d/2,d+d] );
+	translate ([d,d,-1]) cube( [a-d,b-d,d+d+2] );
 }
 }
 }
