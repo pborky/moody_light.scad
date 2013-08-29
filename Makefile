@@ -5,7 +5,7 @@ SHADER=4
 
 BUILD_DIR=build/
 
-all: 1 2 3 4
+all: 1 2 3 4 5
 
 clean:
 	rm $(BUILD_DIR)*stl

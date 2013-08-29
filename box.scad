@@ -2,6 +2,7 @@ BOTTOM =1;
 MIDDLE = 2;
 TOP = 3;
 SHADER = 4;
+SHADER2 = 5;
 
 //select = SHADER;
 
@@ -22,6 +23,13 @@ dk = 3 ; // priemer srobov
 
 m = 44; // vyska shadera
 n = 2; // tloustka stropu
+
+// polomer podstavy cylindra
+rs = sqrt(pow((a+d/2),2) + pow((b+d/2),2))/2;
+// polomer vrchol cylindra
+rv = 5;
+// tenka stena cylindra
+dd = 1;
 
 if (select==BOTTOM) {
 
@@ -81,5 +89,12 @@ if (select==SHADER) {
                translate ([d/2,d/2,0]) cube( [a+d/2,b+d/2,m-n] );
 		translate ([d/4,d/4,0]) cube( [a+d,b+d,d/3] );
 		
+	}
+}
+
+if (select==SHADER2) { // treba naslicovat len obrys
+	intersection() {
+		translate([a/2+dd/4, b/2+dd/4, 0]) cylinder( r1 = rs, r2 = rv, h = (m-d), center = false, $fn=1000 );
+		translate ([0,0,0]) cube( [a+dd/2,b+dd/2,m-d] );
 	}
 }
