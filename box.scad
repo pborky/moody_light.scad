@@ -21,6 +21,7 @@ k = 26; // roztec srobov
 dk = 3 ; // priemer srobov
 
 m = 44; // vyska shadera
+n = 2; // tloustka stropu
 
 if (select==BOTTOM) {
 
@@ -77,7 +78,7 @@ difference() {
 if (select==SHADER) {
 	difference() {
 		translate ([0,0,0]) cube( [a+3*d/2,b+3*d/2,m] );
-		translate ([d/2,d/2,0]) cube( [a+d/2,b+d/2,m-d] );
+               translate ([d/2,d/2,0]) cube( [a+d/2,b+d/2,m-n] );
 		translate ([d/4,d/4,0]) cube( [a+d,b+d,d/3] );
 		
 	}
